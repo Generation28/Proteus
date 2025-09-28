@@ -1,0 +1,140 @@
+// using buttons and display to show numbers 
+void setup() {
+  pinMode(8, OUTPUT);  // a
+  pinMode(7, OUTPUT);  // b
+  pinMode(6, OUTPUT);  // c
+  pinMode(5, OUTPUT);  // d
+  pinMode(4, OUTPUT);  // e
+  pinMode(3, OUTPUT);  // f
+  pinMode(2, OUTPUT);  // g
+  pinMode(A0, INPUT);  // g
+  pinMode(A1, INPUT);  // g
+}
+int count = 0;
+void loop() {
+  int sw1 = digitalRead(A0);
+  int sw2 = digitalRead(A1);
+  if (sw1 == HIGH) 
+  {
+    count++;
+    if(count>9)
+    {
+      count=9;
+    }
+    delay(500);
+  }
+  if (sw2 == HIGH) 
+  {
+    count--;
+    if(count<0)
+    {
+      count=0;
+    }
+    delay(500);
+  }
+  digit(count);
+  delay(100);
+}
+
+
+void digit_off() {
+  digitalWrite(8, LOW);
+  digitalWrite(7, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(5, LOW);
+  digitalWrite(4, LOW);
+  digitalWrite(3, LOW);
+  digitalWrite(2, LOW);
+}
+void digit(int n) {
+  if (n == 0) {
+    digitalWrite(8, HIGH);
+    digitalWrite(7, HIGH);
+    digitalWrite(6, HIGH);
+    digitalWrite(5, HIGH);
+    digitalWrite(4, HIGH);
+    digitalWrite(3, HIGH);
+    digitalWrite(2, LOW);
+  }
+  if (n == 1) {
+    digitalWrite(8, LOW);
+    digitalWrite(7, HIGH);
+    digitalWrite(6, HIGH);
+    digitalWrite(5, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(3, LOW);
+    digitalWrite(2, LOW);
+  }
+  if (n == 2) {
+    digitalWrite(8, HIGH);
+    digitalWrite(7, HIGH);
+    digitalWrite(6, LOW);
+    digitalWrite(5, HIGH);
+    digitalWrite(4, HIGH);
+    digitalWrite(3, LOW);
+    digitalWrite(2, HIGH);
+  }
+  if (n == 3) {
+    digitalWrite(8, HIGH);
+    digitalWrite(7, HIGH);
+    digitalWrite(6, HIGH);
+    digitalWrite(5, HIGH);
+    digitalWrite(4, LOW);
+    digitalWrite(3, LOW);
+    digitalWrite(2, HIGH);
+  }
+  if (n == 4) {
+    digitalWrite(8, LOW);
+    digitalWrite(7, HIGH);
+    digitalWrite(6, HIGH);
+    digitalWrite(5, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(3, HIGH);
+    digitalWrite(2, HIGH);
+  }
+  if (n == 5) {
+    digitalWrite(8, HIGH);
+    digitalWrite(7, LOW);
+    digitalWrite(6, HIGH);
+    digitalWrite(5, HIGH);
+    digitalWrite(4, LOW);
+    digitalWrite(3, HIGH);
+    digitalWrite(2, HIGH);
+  }
+  if (n == 6) {
+    digitalWrite(8, HIGH);
+    digitalWrite(7, LOW);
+    digitalWrite(6, HIGH);
+    digitalWrite(5, HIGH);
+    digitalWrite(4, HIGH);
+    digitalWrite(3, HIGH);
+    digitalWrite(2, HIGH);
+  }
+  if (n == 7) {
+    digitalWrite(8, HIGH);
+    digitalWrite(7, HIGH);
+    digitalWrite(6, HIGH);
+    digitalWrite(5, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(3, LOW);
+    digitalWrite(2, LOW);
+  }
+  if (n == 8) {
+    digitalWrite(8, HIGH);
+    digitalWrite(7, HIGH);
+    digitalWrite(6, HIGH);
+    digitalWrite(5, HIGH);
+    digitalWrite(4, HIGH);
+    digitalWrite(3, HIGH);
+    digitalWrite(2, HIGH);
+  }
+  if (n == 9) {
+    digitalWrite(8, HIGH);
+    digitalWrite(7, HIGH);
+    digitalWrite(6, HIGH);
+    digitalWrite(5, HIGH);
+    digitalWrite(4, LOW);
+    digitalWrite(3, HIGH);
+    digitalWrite(2, HIGH);
+  }
+}

@@ -1,1 +1,49 @@
+void setup() 
+{
+pinMode(A0,INPUT);
+pinMode(3,OUTPUT);
+pinMode(4,OUTPUT);
+pinMode(5,OUTPUT);
+}
+int count=0; // using count for various modes 
+void loop() 
+{
+int sw=digitalRead(A0);
+if(sw==HIGH)
+{
+  count++;
+  if(count>3)
+  {
+    count=0;
+  }
+  delay(300); // debounce delay
+}
+if(count==1)
+{
+digitalWrite(3,HIGH);
+digitalWrite(4,LOW);
+digitalWrite(5,LOW);
+delay(100);
+}
+else if(count==2)
+{
+digitalWrite(4,HIGH);
+digitalWrite(3,LOW);
+digitalWrite(5,LOW);
+delay(100);
+}
+else if(count==3)
+{
+digitalWrite(5,HIGH);
+digitalWrite(3,LOW);
+digitalWrite(4,LOW);
+delay(100);
+}
+else 
+{
+digitalWrite(3,LOW);
+digitalWrite(4,LOW);
+digitalWrite(5,LOW);
+}
+}
 
